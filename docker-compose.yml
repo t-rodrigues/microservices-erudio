@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  exchange-db:
+    container_name: exchange_db
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${EXCHANGE_DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${EXCHANGE_DATABASE}
+    ports:
+      - 3306:3306
+    volumes:
+      - exchange-volume:/var/lib/mysql
+
+  book-db:
+    container_name: book_db
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${BOOK_DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${BOOK_DATABASE}
+    ports:
+      - 3307:3306
+    volumes:
+      - book-volume:/var/lib/mysql
+
+volumes:
+  exchange-volume: {}
+  book-volume: {}
