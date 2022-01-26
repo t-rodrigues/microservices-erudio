@@ -1,11 +1,9 @@
 package dev.trodrigues.bookservice.dtos;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import dev.trodrigues.bookservice.domain.Book;
 
 import java.time.LocalDate;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BookDto {
 
     private Long id;

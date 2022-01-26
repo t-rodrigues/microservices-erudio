@@ -1,12 +1,20 @@
 package dev.trodrigues.bookservice.domain;
 
+import javax.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "book")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String author;
+
+    @Temporal(TemporalType.DATE)
     private LocalDate launchDate;
     private Double price;
     private String title;
