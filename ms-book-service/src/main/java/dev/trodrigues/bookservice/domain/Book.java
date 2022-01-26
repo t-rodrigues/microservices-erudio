@@ -10,18 +10,16 @@ public class Book {
     private LocalDate launchDate;
     private Double price;
     private String title;
-    private String currency;
 
     public Book() {
     }
 
-    public Book(Long id, String author, String title, LocalDate launchDate, Double price, String currency) {
+    public Book(Long id, String author, String title, LocalDate launchDate, Double price) {
         this.id = id;
         this.author = author;
         this.launchDate = launchDate;
         this.price = price;
         this.title = title;
-        this.currency = currency;
     }
 
     public Long getId() {
@@ -62,14 +60,6 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
     }
 
     @Override

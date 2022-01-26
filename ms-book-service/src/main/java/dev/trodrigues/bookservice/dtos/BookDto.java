@@ -22,7 +22,7 @@ public class BookDto {
         this.launchDate = book.getLaunchDate();
         this.price = book.getPrice();
         this.title = book.getTitle();
-        this.currency = book.getCurrency();
+        // this.currency = book.getCurrency();
     }
 
     public Long getId() {
