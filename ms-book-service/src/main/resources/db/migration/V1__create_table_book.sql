@@ -1,4 +1,4 @@
-CREATE TABLE book (
+CREATE TABLE tb_book (
     id INT(10) AUTO_INCREMENT PRIMARY KEY,
     author longtext,
     launch_date datetime(6) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE book (
     title longtext
 );
 
-INSERT INTO book (author, launch_date, price, title)
+INSERT INTO tb_book (author, launch_date, price, title)
  VALUES
     ('Michael C. Feathers', '2017-11-29 13:50:05.878000', 8.57, 'Working effectively with legacy code'),
 	('Ralph Johnson, Erich Gamma, John Vlissides e Richard Helm', '2017-11-29 15:15:13.636000', 7.87, 'Design Patterns'),

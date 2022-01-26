@@ -22,9 +22,8 @@ public class BookController {
 
     @GetMapping("/{id}/{currency}")
     public BookDto getBook(@PathVariable Long id, @PathVariable String currency) {
-        var bookDto = bookService.getBookById(id);
+        var bookDto = bookService.getBookById(id, currency);
         var port = environment.getProperty("local.server.port");
-        bookDto.setCurrency(currency);
         bookDto.setEnvironment(port);
         return bookDto;
     }

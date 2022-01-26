@@ -6,15 +6,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "book")
+@Table(name = "tb_book")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String author;
-
-    @Temporal(TemporalType.DATE)
     private LocalDate launchDate;
     private Double price;
     private String title;
