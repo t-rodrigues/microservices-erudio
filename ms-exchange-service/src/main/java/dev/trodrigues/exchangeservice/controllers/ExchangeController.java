@@ -1,6 +1,7 @@
 package dev.trodrigues.exchangeservice.controllers;
 
-import dev.trodrigues.exchangeservice.domain.Exchange;
+import dev.trodrigues.exchangeservice.dtos.ExchangeDto;
+import dev.trodrigues.exchangeservice.services.ExchangeService;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +15,21 @@ import java.math.BigDecimal;
 public class ExchangeController {
 
     private final Environment environment;
+    private final ExchangeService exchangeService;
 
-    public ExchangeController(Environment environment) {
+    public ExchangeController(Environment environment, ExchangeService exchangeService) {
         this.environment = environment;
+        this.exchangeService = exchangeService;
     }
 
     @GetMapping("/{amount}/{from}/{to}")
-    public Exchange getExchange(@PathVariable BigDecimal amount, @PathVariable String from, @PathVariable String to) {
+    public ExchangeDto getExchange(@PathVariable BigDecimal amount, @PathVariable String from,
+            @PathVariable String to) {
+        var exchangeDto = this.exchangeService.convert(amount, from, to);
         var port = environment.getProperty("local.server.port");
-        return new Exchange(1L, from, to, BigDecimal.ONE, BigDecimal.ONE, port);
+        exchangeDto.setEnvironment(port);
+
+        return exchangeDto;
     }
 
 }

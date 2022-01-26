@@ -1,28 +1,33 @@
 package dev.trodrigues.exchangeservice.domain;
 
+import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_exchange")
 public class Exchange {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "from_currency")
     private String from;
+
+    @Column(name = "to_currency")
     private String to;
     private BigDecimal conversionFactor;
-    private BigDecimal convertedValue;
-    private String environment;
 
     public Exchange() {
     }
 
-    public Exchange(Long id, String from, String to, BigDecimal conversionFactor, BigDecimal convertedValue,
-            String environment) {
+    public Exchange(Long id, String from, String to, BigDecimal conversionFactor) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.conversionFactor = conversionFactor;
-        this.convertedValue = convertedValue;
-        this.environment = environment;
     }
 
     public Long getId() {
@@ -55,22 +60,6 @@ public class Exchange {
 
     public void setConversionFactor(BigDecimal conversionFactor) {
         this.conversionFactor = conversionFactor;
-    }
-
-    public BigDecimal getConvertedValue() {
-        return convertedValue;
-    }
-
-    public void setConvertedValue(BigDecimal convertedValue) {
-        this.convertedValue = convertedValue;
-    }
-
-    public String getEnvironment() {
-        return environment;
-    }
-
-    public void setEnvironment(String environment) {
-        this.environment = environment;
     }
 
     @Override
