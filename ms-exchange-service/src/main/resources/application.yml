@@ -18,3 +18,8 @@ spring:
     schemas: exchange
     user: ${EXCHANGE_DATABASE_USER}
     password: ${EXCHANGE_DATABASE_PASSWORD}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
