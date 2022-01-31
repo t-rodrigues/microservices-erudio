@@ -42,3 +42,8 @@ resilience4j:
         max-attempts: 5
         wait-duration: 1s
         enable-exponential-backoff: true
+
+springdoc:
+  show-actuator: true
+  api-docs:
+    path: book-service/v3/api-docs
